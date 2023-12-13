@@ -31,7 +31,32 @@ def print_table_top():
 
 
 print_table_top()
-print_table_vert_line()
 print_table_top()
 print_table_vert_line()
 print_table_top()
+print_table_vert_line()
+print_table_top()
+
+
+def yacheyka_gorizontal_chizigi():
+    print(' -'*4, ' ', end='', sep='')
+
+def burchak(songi = False):
+    if songi:
+        print('+')
+    else:
+        print('+', end='')
+
+
+
+# burchak()
+# yacheyka_gorizontal_chizigi()
+# burchak()
+# yacheyka_gorizontal_chizigi()
+# burchak()
+
+# burchak()
+# yacheyka_gorizontal_chizigi()
+# burchak()
+# yacheyka_gorizontal_chizigi()
+# burchak('songi')
