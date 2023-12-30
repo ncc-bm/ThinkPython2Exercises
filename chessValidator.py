@@ -1,4 +1,4 @@
-chessBoar = {'1h': 'bking',
+chessBoard = {'1h': 'bking',
              '6c': 'wqueen',
              '2g': 'bbishop',
              '5h': 'bqueen',
@@ -6,9 +6,10 @@ chessBoar = {'1h': 'bking',
 
 
 def isValidChessBoard(dict):
-    for i, k in dict:
-        print(k)
-    return True
+    #for k, v in dict.items():
+    #    print("key is: " + k + ' value is: ' + v)
+    #print(list(dict.keys()))
+    print('wking' in dict.values())
+    
 
-
-isValidChessBoard(chessBoar)
+isValidChessBoard(chessBoard)
