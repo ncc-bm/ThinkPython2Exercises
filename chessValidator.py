@@ -42,10 +42,10 @@ chessBoard = {'1h': 'bking',
              '2c': 'wbishop', 
              '2d': 'wbishop', 
             #  '2e': 'bbishop', 
-             '2h': 'qbishop', 
+             '2h': 'wbishop', 
              '5h': 'bqueen',
              '4a': 'wpawn',
-             '4b': 'wpawn',
+             '4b': 'wpwwn',
              '4c': 'wpawn',
              '4d': 'wpawn',
              '4e': 'wpawn',
@@ -83,6 +83,26 @@ def isValidChessBoard(dict):
         print('Chess board has not valid number of pieces. You have more than 32 pieces on the chess board' )
         print('Chess board is not valid !!!')
         return
+
+    whiteAndBlackPieces = countPiecesByColor(dict)
+
+    # Check that all pieces start with letter 'w' or 'b'
+    # dictionary whiteAndBlackPieces contains how many in total black and white pieces on the chess board
+    # whiteAndBlackPieces should contain only two keys (w and b)
+    if (len(whiteAndBlackPieces.keys()) > 2):
+        print('There can be only two types of chess pieces: black and white. You have', len(whiteAndBlackPieces.keys()), 'kind of (color) chess pieces on the board')
+        print('Chess board is not valid !!!')
+        return
+    elif ('w' not in whiteAndBlackPieces.keys()):
+        print('There is no white pieces on the chess board')
+        print('Chess board is not valid !!!')
+        return
+    elif ('b' not in whiteAndBlackPieces.keys()):
+        print('There is no black pieces on the chess board')
+        print('Chess board is not valid !!!')
+        return
+    else:
+        print('Chessboard has valid white and black pieces on the board')
     
     count = countPieces(dict)
     # Check a chessboard must have one and only white king on it
@@ -102,7 +122,6 @@ def isValidChessBoard(dict):
         return
 
     # Check white and black pieces: each color cannot be more than 16 things
-    whiteAndBlackPieces = countPiecesByColor(dict)
     if (whiteAndBlackPieces['w'] > 16):
         print('It is not allowed to have more than 16 white pieces on a chessboard. You have', whiteAndBlackPieces['w'], 'white pieces on the chess board')
         print('Chess board is not valid !!!')
@@ -119,28 +138,48 @@ def isValidChessBoard(dict):
 
     if (count.get('wpawn', 0) > chessboardValidPieces['wpawn']):
         print('There should be no more than 8 white pawns in a chess board. You have', count['wpawn'], 'white pawns in the chess board.')
-        print('Chess board is not valid')
+        print('Chess board is not valid !!!')
         return
     else:
         print('The chess board has a valid number', count.get('wpawn', 0), '(not more than 8) of white pawns')
 
     if (count.get('bpawn', 0) > chessboardValidPieces['bpawn']):
         print('There should be no more than 8 black pawns in a chess board. You have', count['bpawn'], 'black pawns in the chess board.')
-        print('Chess board is not valid')
+        print('Chess board is not valid !!!')
         return
     else:
         print('The chess board has a valid number', count.get('bpawn', 0), '(not more than 8) of black pawns')
     
+    # Check chess pieces located within a valid space from 1a to 8h
     for k, v in dict.items():
-        if (len(k) != 2):
+        # There cannot be more than two symbols in a piece location
+        if (len(k) != 2): 
             print('Chess board piece', v, 'located in not valid space', k)
+            print('Chess board is not valid !!!')
             return
+        # First symbol of the piece location should be number between 1 to 8 (range(1,9) gives this range)
         elif (int(k[0]) not in range(1,9)):
             print('Chess board piece', v, 'located in not valid space', k)
+            print('Chess board is not valid !!!')
             return
+        # The second symbol of the piece location should be letter from a to h
         elif (str(k[1]) not in ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h')):
             print('Chess board piece', v, 'located in not valid space', k)
+            print('Chess board is not valid !!!')
             return
+    
+    # if the previous check passed, it can be considered that all chess pieces located within a valid space
+    print('All chess pieces located within valid space (from 1a to 8h)')
+
+    # Check chess board have pieces with valid piece names:
+    for v in chessBoard.values():
+        if (v not in chessPieces):
+            print('Chessboard has a piecse', v, 'with invalid name')
+            print('Chess board is not valid !!!')
+            return
+    
+    print('Chessboard has pieces with valid names')
+            
 
     print('Chess board is valid!!!')
     #countByPieceAndColor = countPieces(dict)
