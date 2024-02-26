@@ -32,7 +32,7 @@ class MyZombie:
 
 zombie = (zombiedice.examples.RandomCoinFlipZombie(name='Random'),
           zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 2 Shotguns', minShotguns=2),
-          zombiedice.examples.MinNumShotgunsThenStopZombie(name='Stop at 1 Shotgun', minShotgun=1),
+          zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 1 Shotguns', minShotguns=1),
           MyZombie(name='My Zombie Bot'),
           # Add any other zombie players here.
 )
