@@ -19,7 +19,7 @@ allInterfaceRegex = re. compile(r'''(
 # Select necessary interfaces (only names)
 interfaceRegex = re. compile(r'''(
     ^interface.*                                            # matched text should start with a string "interface" with preceding spaces
-    (Bundle-Ether.*|GigabitEthernet.*|TenGig.*|Hundred.*)   # select specific interfaces
+    (Bundle-Ether\d+\s|GigabitEthernet\d+/\d+/\d+/\d+\s|TenGigE\d+/\d+/\d+/\d+\s|HundredGigE\d+/\d+/\d+/\d+\s)   # select specific interfaces
     .*
  )''', re.VERBOSE|re.MULTILINE)
 
