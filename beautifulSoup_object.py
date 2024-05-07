@@ -23,7 +23,7 @@ print(str(elems[0]))    # The Tag object as a string. <span id="author"> Al Swei
 print(elems[0].getText()) # Al Sweigart
 print(elems[0].attrs)   # {'id': 'author'} """
 
-
+""" 
 pElems = exampleSoup.select('p')
 print(str(pElems[0]))
 print(pElems[0].getText())
@@ -33,3 +33,11 @@ print(pElems[1].getText())
 print()
 print(str(pElems[2]))
 print(pElems[2].getText())
+ """
+
+
+spanElem = exampleSoup.select('span')[0]
+print(str(spanElem))
+print(spanElem.get('id'))
+print(spanElem.get('some_nonexistent_addr') == None)
+print(spanElem.attrs)
