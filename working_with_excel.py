@@ -51,3 +51,12 @@ print(get_column_letter(sheet.max_column))
 
 print(column_index_from_string('A'))
 print(column_index_from_string('AA'))
+
+
+print(tuple(sheet['A1': 'C3']))
+
+for rowOfCellObjects in sheet['A1':'C3']:
+    for cellObj in rowOfCellObjects:
+        print(cellObj.coordinate, cellObj.value)
+    print('--- END of ROW ---')
+    
