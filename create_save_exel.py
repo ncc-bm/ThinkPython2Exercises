@@ -36,3 +36,9 @@ print()
 del wb['Sheet']
 print(wb.sheetnames)
 print()
+
+print(wb.active)
+sheet = wb.active
+sheet['A1'] = 'Hello, world!'
+print(sheet['A1'].value)
+wb.save('example_copy.xlsx')
