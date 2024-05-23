@@ -8,3 +8,6 @@ print(sheet.title)
 
 sheet.title = 'Spam Bacon Eggs Sheet' # Change title
 print(wb.sheetnames)
+
+sheet.title = 'Spam Spam Spam'
+wb.save('example_copy.xlsx')
