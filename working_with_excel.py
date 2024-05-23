@@ -59,4 +59,10 @@ for rowOfCellObjects in sheet['A1':'C3']:
     for cellObj in rowOfCellObjects:
         print(cellObj.coordinate, cellObj.value)
     print('--- END of ROW ---')
-    
+
+print()
+print(list(sheet.columns)[1])
+
+for cellObj in list(sheet.columns)[1]:
+    print(cellObj.value)
+
