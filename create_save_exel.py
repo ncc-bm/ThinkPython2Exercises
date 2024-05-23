@@ -28,3 +28,11 @@ print()
 wb.create_sheet(index=2, title='Middle Sheet')
 print(wb.sheetnames)
 print()
+
+del wb['Middle Sheet']
+print(wb.sheetnames)
+print()
+
+del wb['Sheet']
+print(wb.sheetnames)
+print()
