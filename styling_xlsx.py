@@ -16,4 +16,8 @@ fontObj2 = Font(size=24, italic=True)
 sheet['B3'].font = fontObj2
 sheet['B3'] = '24 pt Italic'
 
+sheet['A4'] = 200
+sheet['A5'] = 300
+sheet['A6'] = '=SUM(A4:A5)' # Set the formula
+
 wb.save('styles.xlsx')
