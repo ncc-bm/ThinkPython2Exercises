@@ -1,5 +1,4 @@
 import openpyxl, sys
-import openpyxl.workbook
 from openpyxl.styles import Font
 
 if len(sys.argv) > 1:
